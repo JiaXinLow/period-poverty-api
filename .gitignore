@@ -1,4 +1,10 @@
+# virtual env & caches
 venv/
 __pycache__/
 *.pyc
+
+# env secrets
 .env
+
+# raw data should NOT be versioned
+data/raw/*
