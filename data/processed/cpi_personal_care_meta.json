@@ -1,0 +1,11 @@
+{
+  "source_file":"..\/data\/raw\/ons_cpi_mm23.csv",
+  "series_title":"CPI INDEX 12.1 : PERSONAL CARE 2015=100",
+  "cdid":"D7CY",
+  "unit":"Index, base year = 100",
+  "release_date":"18-02-2026",
+  "base_year":"2015=100",
+  "rows":457,
+  "date_min":"1988-01-01",
+  "date_max":"2026-01-01"
+}
