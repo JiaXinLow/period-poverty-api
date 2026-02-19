@@ -1,0 +1,19 @@
+{
+  "source_file": "../data/raw/worldbank_pip_2017.csv",
+  "country": "United Kingdom (GBR)",
+  "coverage": "national",
+  "rows": 5400,
+  "years": [
+    1968,
+    2021
+  ],
+  "percentiles_per_year_min": 100,
+  "percentiles_per_year_max": 100,
+  "welfare_types": [
+    "income"
+  ],
+  "units": {
+    "avg_welfare_daily_ppp": "PPP-adjusted income/consumption per person per day",
+    "avg_welfare_annual_ppp": "PPP-adjusted income/consumption per person per year"
+  }
+}

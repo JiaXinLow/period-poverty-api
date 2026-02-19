@@ -1,0 +1,9 @@
+{
+  "source_summary": "UK SILC 2018 via WHO/UNICEF JMP (household bathing facility access)",
+  "country": "United Kingdom",
+  "indicator": "bathing_facility",
+  "units": "percent of households with bathing facility",
+  "value": 99.7,
+  "year": 2018,
+  "notes": "UK lacks JMP handwashing indicators; bathing facility is used as a hygiene proxy."
+}
