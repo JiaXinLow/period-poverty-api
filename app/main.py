@@ -1,7 +1,11 @@
 from fastapi import FastAPI
+from .database import Base, engine
 
-app = FastAPI()
+app = FastAPI(title="Period Poverty API", version="v1")
 
-@app.get("/health")
+# Create tables at startup (idempotent)
+Base.metadata.create_all(bind=engine)
+
+@app.get("/v1/health")
 def health():
-    return {"status": "ok", "message": "API is running!"}
+    return {"status": "ok"}
