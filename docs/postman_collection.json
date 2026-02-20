@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Period Poverty API",
+    "_postman_id": "b7a1f6b8-2222-4f7e-8e33-demo",
+    "description": "CRUD + datasets + analytics for Period Poverty API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:8000" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/health" }
+    },
+    {
+      "name": "Basket - Create",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/v1/basket-items/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"pads pack\",\n  \"unit_price\": 2.5,\n  \"units_per_month\": 2,\n  \"currency\": \"GBP\",\n  \"notes\": \"supermarket average\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Basket - List",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/basket-items/" }
+    },
+    {
+      "name": "Basket - Get by ID",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/basket-items/1" }
+    },
+    {
+      "name": "Basket - Update",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/v1/basket-items/1",
+        "body": { "mode": "raw", "raw": "{ \"unit_price\": 3.0 }" }
+      }
+    },
+    {
+      "name": "Basket - Delete",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/v1/basket-items/1" }
+    },
+    {
+      "name": "Dataset - Price Index (2018-2020)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/price-index?from=2018-01&to=2020-12" }
+    },
+    {
+      "name": "Dataset - PIP UK (2018)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/pip/uk/2018" }
+    },
+    {
+      "name": "Dataset - Hygiene UK (latest)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/hygiene/uk" }
+    },
+    {
+      "name": "Analytics - Inflation Trend (2018-2020)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/analytics/inflation-trend?from=2018-01&to=2020-12" }
+    },
+    {
+      "name": "Analytics - Cost Estimate (use DB basket)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/v1/analytics/cost-estimate",
+        "body": { "mode": "raw", "raw": "{ \"apply_yoy_cpi\": false }" }
+      }
+    },
+    {
+      "name": "Analytics - Cost Estimate (custom one-line basket)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/v1/analytics/cost-estimate",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"apply_yoy_cpi\": true, \"lines\": [ { \"name\":\"pads pack\", \"unit_price\": 2.5, \"units_per_month\": 2, \"currency\": \"GBP\" } ] }"
+        }
+      }
+    },
+    {
+      "name": "Analytics - Cost Burden (2018, P20)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/analytics/cost-burden?year=2018&percentile=20" }
+    },
+    {
+      "name": "Analytics - Severity Score (2018, P20)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/v1/analytics/severity-score?year=2018&percentile=20" }
+    }
+  ]
+}
